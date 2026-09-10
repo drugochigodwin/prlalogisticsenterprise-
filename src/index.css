@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Royal Blue — primary brand */
+  --color-royal-50: #f1f6fe;
+  --color-royal-100: #e1ebfd;
+  --color-royal-200: #c2d6fb;
+  --color-royal-300: #8ab2f6;
+  --color-royal-400: #4c86ee;
+  --color-royal-500: #2160d8;
+  --color-royal-600: #1749b0;
+  --color-royal-700: #133c8f;
+  --color-royal-800: #0f2a6b;
+  --color-royal-900: #0a1c4d;
+  --color-royal-950: #061033;
+
+  /* Gold — accent only */
+  --color-gold-100: #fbf3de;
+  --color-gold-200: #f7e9be;
+  --color-gold-300: #f0d785;
+  --color-gold-400: #dfba4e;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #a8801a;
+
+  /* Neutrals */
+  --color-ink: #0b1220;
+  --color-navy: #0a1c4d;
+  --color-slate-muted: #4a5a78;
+  --color-mist: #f5f7fa;
+
+  --shadow-soft: 0 1px 2px rgba(10, 28, 77, 0.04), 0 8px 24px -12px rgba(10, 28, 77, 0.12);
+  --shadow-card: 0 1px 3px rgba(10, 28, 77, 0.06), 0 18px 40px -24px rgba(10, 28, 77, 0.28);
+  --shadow-lift: 0 2px 6px rgba(10, 28, 77, 0.08), 0 28px 56px -28px rgba(10, 28, 77, 0.42);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-[#1c2a44] antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-royal-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-royal-900);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gold-rule {
+    background: linear-gradient(90deg, var(--color-gold-500), rgba(201, 162, 39, 0));
+  }
+
+  .grid-mesh {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
